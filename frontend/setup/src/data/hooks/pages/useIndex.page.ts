@@ -1,0 +1,67 @@
+import { Card } from "@/data/@types/CardInterface";
+
+export default function useIndex() {
+    const cards: Card[] = [
+        {
+            id: "1",
+            lastLevel: "beginner",
+            front: "How are you?",
+            back: "Como você está?",
+            updatedAt: new Date("2024-12-12"),
+            createdAt: new Date("2024-12-10"),
+            picture: "https://example.com/images/how-are-you.png",
+            nextView: new Date("2024-12-15"),
+            daysLastView: "3",
+            study: true,
+        },
+        {
+            id: "2",
+            lastLevel: "beginner",
+            front: "Where is the bathroom?",
+            back: "Onde fica o banheiro?",
+            updatedAt: new Date("2024-12-13"),
+            createdAt: new Date("2024-12-10"),
+            picture: "https://example.com/images/where-is-bathroom.png",
+            nextView: new Date("2024-12-16"),
+            daysLastView: "3",
+            study: false,
+        },
+        {
+            id: "3",
+            lastLevel: "intermediate",
+            front: "I would like a coffee, please.",
+            back: "Eu gostaria de um café, por favor.",
+            updatedAt: new Date("2024-12-13"),
+            createdAt: new Date("2024-12-09"),
+            picture: "https://example.com/images/coffee.png",
+            nextView: new Date("2024-12-17"),
+            daysLastView: "4",
+            study: false,
+        },
+        {
+            id: "4",
+            lastLevel: "intermediate",
+            front: "Could you help me with this?",
+            back: "Você poderia me ajudar com isso?",
+            updatedAt: new Date("2024-12-14"),
+            createdAt: new Date("2024-12-10"),
+            picture: "https://example.com/images/help.png",
+            nextView: new Date("2024-12-18"),
+            daysLastView: "4",
+            study: false,
+        },
+        {
+            id: "5",
+            lastLevel: "advanced",
+            front: "Actions speak louder than words.",
+            back: "Ações falam mais alto que palavras.",
+            updatedAt: new Date("2024-12-14"),
+            createdAt: new Date("2024-12-08"),
+            picture: "https://example.com/images/actions-speak.png",
+            nextView: new Date("2024-12-20"),
+            daysLastView: "6",
+            study: true,
+        },
+    ];
+    return { cards };
+}

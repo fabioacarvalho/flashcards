@@ -5,10 +5,15 @@
   --primary-color: #ed3f7e;
   --secondary-color: #7645F2;
   --third-color: #00a99d;
+
   --card-color: #3a3939;
+  --card-color-back: #ed3f7e;
   --text-card-color: #ed3f7e;
+  --text-card-color-back: #3a3939;
+  
   --text-color: #7d7d7d;
-  --shadow: rgba(237, 63, 126, 0.12);
+  --secondary-text-color: #3a3939;
+  --shadow: hsla(338, 83%, 59%, 0.235);
 }
 
 
@@ -42,4 +47,26 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.buttonDesign1 {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--third-color);
+  color: var(--secondary-text-color);
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  z-index: 1000000 !important;
+}
+
+.buttonDesign2 {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  z-index: 1000000 !important;
 }

@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.containerRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.buttonDesign1 {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--third-color);
+    color: var(--secondary-text-color);
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    z-index: 1000000 !important;
+}
+  
+.buttonDesign2 {
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    z-index: 1000000 !important;
+}
+
+.buttonDesign3 {
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    z-index: 1000000 !important;
+    min-width: 150px;
+}
+
+.containerButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
