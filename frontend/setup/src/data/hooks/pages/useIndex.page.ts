@@ -24,7 +24,7 @@ export default function useIndex() {
         if (cardEdited !== null){
             ApiService.put(`/card/${card.id}`, card).then(() => {
                 handleGetCards()
-                return {refresh: true, ok: 'OK'}
+                console.log("ok...")
             }).catch((error) => {
                 alert(error.response?.data.message)
             })

@@ -43,7 +43,7 @@ export default function Page() {
                 study: false,
             }
             handleUpdateCard(arr)
-            // location.reload()
+            location.reload()
         } else if(level == 2){
             const arr = {
                 id: selectedCard.id,
