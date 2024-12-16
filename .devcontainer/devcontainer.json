@@ -1,0 +1,14 @@
+{
+    "name": "Flask Dev Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "backend", // Substitua pelo nome do serviço definido no seu docker-compose.yml
+    "workspaceFolder": "/app",
+    "settings": {
+        "python.pythonPath": "/usr/local/bin/python"
+    },
+    "extensions": [
+        "ms-python.python", // Extensão para Python no VS Code
+        "ms-python.vscode-pylance" // Autocomplete e dicas
+    ],
+    "postCreateCommand": "pip install -r requirements.txt"
+}

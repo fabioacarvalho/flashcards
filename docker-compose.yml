@@ -10,35 +10,37 @@ services:
       - flashcards_network
     command: npm run dev
 
-  # backend:
-  #   build:
-  #     context: ./backend
-  #   volumes:
-  #     - .:/app
-  #   ports:
-  #     - "8000:5000"
-  #   command: flask run --host=0.0.0.0 --port=5000 --reload
-  #   networks:
-  #     - flashcards_network
-  #   depends_on:
-  #     - db
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: flask --app api run --host=0.0.0.0 --port=8000
+    environment:
+      FLASK_APP: app.py
+    networks:
+      - flashcards_network
+    depends_on:
+      - db
 
-  # db:
-  #   image: mysql
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: flashcards
-  #   ports:
-  #     - "3306:3306"
-  #   volumes:
-  #     - flashcards_db:/var/lib/mysql
-  #   networks:
-  #     - flashcards_network
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flashcards
+    ports:
+      - "3306:3306"
+    volumes:
+      - flashcards_db:/var/lib/mysql
+    networks:
+      - flashcards_network
 
-# volumes:
-#   flashcards_frontend:
-  # flashcards_backend:
-  # flashcards_db:
+volumes:
+  # flashcards_frontend:
+  flashcards_backend:
+  flashcards_db:
 
 networks:
   flashcards_network:
