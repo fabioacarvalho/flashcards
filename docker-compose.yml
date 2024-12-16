@@ -17,7 +17,7 @@ services:
       - ./backend:/app
     ports:
       - "8000:8000"
-    command: flask --app api run --host=0.0.0.0 --port=8000
+    command: flask --app api run --host=0.0.0.0 --port=8000 --reload
     environment:
       FLASK_APP: app.py
     networks:

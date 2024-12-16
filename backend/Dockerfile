@@ -28,4 +28,4 @@ RUN export FLASK_APP=api
 EXPOSE 5000
 
 # Define o comando para rodar a aplicação
-CMD ["flask", "--app=api", "run", "--host=0.0.0.0", "--port=8000"]
+CMD ["flask", "--app=api", "run", "--host=0.0.0.0", "--port=8000", "--reload"]
