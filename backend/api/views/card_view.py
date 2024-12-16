@@ -4,6 +4,7 @@ from flask import request, make_response, jsonify
 from ..entidades import card
 from ..services import card_service
 from api import api
+from datetime import datetime
 
 
 class CardList(Resource):
@@ -63,15 +64,15 @@ class CardDetail(Resource):
         if validate:
             return make_response(jsonify(validate), 400)
         else:
-            lastLevel = request.json["lastLevel"]
+            lastLevel = request.json["lastLevel"] if request.json["lastLevel"] else "good"
             front = request.json["front"]
             back = request.json["back"]
-            content = request.json["content"]
-            picture = request.json["picture"]
-            daysLastView = request.json["daysLastView"]
-            updatedAt = request.json["updatedAt"]
-            nextView = request.json["nextView"]
-            study = request.json["study"]
+            content = request.json["content"] if request.json["content"] else ""
+            picture = request.json["picture"] if request.json["picture"] else ""
+            daysLastView = request.json["daysLastView"] if request.json["daysLastView"] else 1
+            updatedAt = request.json["updatedAt"] if request.json["updatedAt"] else datetime.today()
+            nextView = request.json["nextView"] if request.json["nextView"] else datetime.today()
+            study = request.json["study"] if request.json["study"] else True
 
             edited_card = card.Card(lastLevel=lastLevel, front=front, back=back, content=content, picture=picture, daysLastView=daysLastView, updatedAt=updatedAt, nextView=nextView, study=study)
 

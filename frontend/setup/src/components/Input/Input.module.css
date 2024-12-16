@@ -1,0 +1,22 @@
+.inputContainer {
+    display: flex;
+    width: 80vw;
+    max-width: 1000px !important;
+    margin: 10px auto;
+}
+
+.inputLabel {
+    display: block;
+    margin: 16px !important;
+}
+
+.inputField {
+    margin-top: 5px;
+    display: block;
+    border-radius: 8px;
+    border: gray 1px solid;
+    text-shadow: var(--shadow);
+    padding: 9px;
+    width: 100vw;
+    font-size: large;
+}

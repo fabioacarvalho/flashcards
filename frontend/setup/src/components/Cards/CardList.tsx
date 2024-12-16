@@ -8,10 +8,7 @@ export default function CardList({ cards }: { cards: Card[]}) {
         <div>
             
             {cards.map((card) => {
-                return (card.study ?
-                    <CardListItem key={card.id} card={card} />
-                : null
-                )
+                return <CardListItem key={card.id} card={card} />
             })}
 
         </div>

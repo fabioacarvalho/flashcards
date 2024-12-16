@@ -11,9 +11,9 @@ class Card(db.Model):
     back = db.Column(db.String(250), nullable=False)
     content = db.Column(db.String(250), nullable=True)
     picture = db.Column(db.String(250), nullable=True)
-    daysLastView = db.Column(db.Integer, nullable=False)
+    daysLastView = db.Column(db.Integer, nullable=True)
     study = db.Column(db.Boolean, default=True)  # Booleano com padrão True
-    created_at = db.Column(db.Date, nullable=False, default=date.today)
+    created_at = db.Column(db.Date, nullable=True, default=date.today)
     updatedAt = db.Column(db.Date, nullable=True, default=date.today)
     nextView = db.Column(db.Date, nullable=True, default=date.today)
 

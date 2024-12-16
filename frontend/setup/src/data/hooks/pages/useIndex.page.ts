@@ -33,6 +33,22 @@ export default function useIndex() {
         }
     };
 
+    const handlePostCard = (data) => {
+        if (!data || !data.front || !data.back) {
+            alert("Please fill all the required fields: lastLevel, front, back, and daysLastView.");
+            return;
+        }
+    
+        // Faça a chamada à API
+        ApiService.post("/cards", data)
+            .then((response) => {
+                alert("Card successfully created!");
+            })
+            .catch((error) => {
+                alert("An error occurred while creating the card. Please try again.");
+            });
+    };
+
     async function updateInfos(value){
         const thereInfos = await value.filter((card) => card.study == true)
         const result = thereInfos ? thereInfos.length : 0
@@ -43,5 +59,5 @@ export default function useIndex() {
         handleGetCards();
     }, []);
 
-    return { cards, cardsToStudy, cardEdited, setCardEdited, handleUpdateCard };
+    return { cards, cardsToStudy, cardEdited, setCardEdited, handleUpdateCard, handlePostCard };
 }
