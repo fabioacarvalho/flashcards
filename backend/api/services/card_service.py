@@ -17,3 +17,8 @@ def add_card(card):
     db.session.add(card_db)
     db.session.commit()
     return card_db
+
+
+def list_cards():
+    cards = card_model.Card.query.all()
+    return cards

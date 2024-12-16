@@ -7,7 +7,11 @@ from api import api
 
 
 class CardList(Resource):
-    
+    def get(self):
+        cards = card_service.list_cards()
+        cs = card_schema.CardSchema(many=True)
+        return make_response(cs.jsonify(cards), 200)
+
     def post(self):
         cs = card_schema.CardSchema()
         validate = cs.validate(request.json)
@@ -35,4 +39,4 @@ class CardDetail(Resource):
     pass
 
 
-api.add_resource(CardList, '/add/card')
+api.add_resource(CardList, '/cards')
