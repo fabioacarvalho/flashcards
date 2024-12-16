@@ -6,9 +6,10 @@ export default function useIndex() {
     // const cards: Card[] = [];
     const [cards, setCards] = useState<Card[]>([]);
     const [cardsToStudy, setCardsToStudy] = useState(0)
+    const [cardEdited, setCardEdited] = useState({})
 
 
-    const handleApiService = () => {
+    const handleGetCards = () => {
         ApiService.get('/cards')
         .then((response) => {
             setCards(response.data);
@@ -19,6 +20,19 @@ export default function useIndex() {
         });
     };
 
+    const handleUpdateCard = (card) => {
+        if (cardEdited !== null){
+            ApiService.put(`/card/${card.id}`, card).then(() => {
+                handleGetCards()
+                return {refresh: true, ok: 'OK'}
+            }).catch((error) => {
+                alert(error.response?.data.message)
+            })
+        } else {
+            alert("Something wrong, try again or contact suport team.")
+        }
+    };
+
     async function updateInfos(value){
         const thereInfos = await value.filter((card) => card.study == true)
         const result = thereInfos ? thereInfos.length : 0
@@ -26,8 +40,8 @@ export default function useIndex() {
       };
 
     useEffect(() => {
-        handleApiService();
+        handleGetCards();
     }, []);
 
-    return { cards, cardsToStudy };
+    return { cards, cardsToStudy, cardEdited, setCardEdited, handleUpdateCard };
 }

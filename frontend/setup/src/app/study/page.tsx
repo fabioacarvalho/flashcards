@@ -7,25 +7,75 @@ import styles from "../global.module.css"
 import Link from 'next/link';
 
 export default function Page() {
-    const { cards, cardsToStudy } = useIndex();
+    const { cards, cardsToStudy, handleUpdateCard } = useIndex();
+
 
     // Função para verificar e selecionar o card
     function handleCards(cards: Card[] | undefined) {
-        if (!Array.isArray(cards) || cards.length === 0) {
+        const cardsFiltered = cards.filter((el => el.study == true))
+        if (!Array.isArray(cards) || cardsFiltered.length === 0) {
             return null; // Nenhum card disponível
         }
-        return cards[1]; // Retorna o primeiro card
+
+        const randomIndex = Math.floor(Math.random() * cardsFiltered.length);
+        return cardsFiltered[randomIndex];
     };
 
     const selectedCard = handleCards(cards);
-
+    
     if (!selectedCard) {
         return <div>Card not found</div>;
     };
 
     const handleLevel = (level: number) => () => {
-        // Atualizar nível do card
-        console.log(`Level ${level} clicked`);
+        if(level == 1){
+            const arr = {
+                id: selectedCard.id,
+                lastLevel: 'easy',
+                front: selectedCard.front,
+                back: selectedCard.back,
+                updatedAt: selectedCard.updatedAt,
+                createdAt: selectedCard.createdAt,
+                picture: selectedCard.picture,
+                nextView: selectedCard.nextView,
+                daysLastView: selectedCard.daysLastView,
+                content: selectedCard.content,
+                study: false,
+            }
+            handleUpdateCard(arr)
+            // location.reload()
+        } else if(level == 2){
+            const arr = {
+                id: selectedCard.id,
+                lastLevel: 'good',
+                front: selectedCard.front,
+                back: selectedCard.back,
+                updatedAt: selectedCard.updatedAt,
+                createdAt: selectedCard.createdAt,
+                picture: selectedCard.picture,
+                nextView: selectedCard.nextView,
+                daysLastView: selectedCard.daysLastView,
+                content: selectedCard.content,
+                study: false,
+            }
+            handleUpdateCard(arr)
+        } else if(level == 3){
+            const arr = {
+                id: selectedCard.id,
+                lastLevel: 'hard',
+                front: selectedCard.front,
+                back: selectedCard.back,
+                updatedAt: selectedCard.updatedAt,
+                createdAt: selectedCard.createdAt,
+                picture: selectedCard.picture,
+                nextView: selectedCard.nextView,
+                daysLastView: selectedCard.daysLastView,
+                content: selectedCard.content,
+                study: false,
+            }
+            handleUpdateCard(arr)
+        }
+
     };
 
     return (

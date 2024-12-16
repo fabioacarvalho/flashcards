@@ -4,5 +4,9 @@ export default async function Page({
     params: Promise<{ slug: string }>
   }) {
     const slug = (await params).slug
-    return <div>My Card: {slug}</div>
+    return (
+      <div>
+        <h1>My Card: {slug}</h1>
+      </div>
+    )
 }

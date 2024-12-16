@@ -7,7 +7,7 @@ export interface Card {
     createdAt: string;
     picture: string;
     nextView: string;
-    daysLastView: number;
+    daysLastView: string;
     content?: JSX.Element;
     study: boolean;
 }
