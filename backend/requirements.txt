@@ -7,3 +7,4 @@ mysqlclient==2.2.6
 flask-marshmallow==1.2.1
 Flask-RESTful==0.3.10
 marshmallow-sqlalchemy==1.1.0
+Flask-Cors==5.0.0

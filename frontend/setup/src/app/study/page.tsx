@@ -1,13 +1,13 @@
 'use client'
 
-import useCards from "@/data/hooks/pages/useCards.page";
+import useIndex from "@/data/hooks/pages/useIndex.page";
 import { Card } from "@/data/@types/CardInterface";
 import { CardListItem } from "@/components/Cards/CardListItem";
 import styles from "../global.module.css"
 import Link from 'next/link';
 
 export default function Page() {
-    const { infos } = useCards();
+    const { cards, cardsToStudy } = useIndex();
 
     // Função para verificar e selecionar o card
     function handleCards(cards: Card[] | undefined) {
@@ -17,7 +17,7 @@ export default function Page() {
         return cards[1]; // Retorna o primeiro card
     };
 
-    const selectedCard = handleCards(infos.cards);
+    const selectedCard = handleCards(cards);
 
     if (!selectedCard) {
         return <div>Card not found</div>;
@@ -31,7 +31,7 @@ export default function Page() {
     return (
         <div>
             <div className={styles.container} style={{ alignItems: 'center', flexDirection: 'row', marginBottom: 30 }}>
-            <h2>Cards: {infos.cardsToStudy}</h2>
+            <h2>Cards: {cardsToStudy}</h2>
                 <Link className={styles.buttonDesign2} href={"/"}>Go home</Link>
             </div>
 

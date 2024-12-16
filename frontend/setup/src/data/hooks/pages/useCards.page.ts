@@ -13,6 +13,8 @@ export default function useCards() {
     function updateInfos(){
         const thereInfos = cards.filter((card) => card.study == true)
 
+        console.log("Passei...: " + cards)
+
         setInfos(thereInfos ? { cards: cards, cardsToStudy: thereInfos.length } : { cards: cards, cardsToStudy: 0 })
     }
 

@@ -30,35 +30,8 @@ docker compose up --build
 
 <br>
 
-Otherwise you can install the dependencies by yourself and run the following command:
+## Routes API
 
-<br>
 
-```bash
-pip install -r requirements.txt
-```
-<br>
-and 
-<br>
-
-```bash
-npm install
-```
-
-<br>
-
-## Run the application withoud Docker
-
-```bash
-npm run dev
-```
-
-<br>
-
-```bash
-flask run
-```
-
-<br>
 
 Wait...

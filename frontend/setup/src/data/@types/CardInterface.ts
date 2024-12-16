@@ -1,13 +1,13 @@
 export interface Card {
-    id: string;
+    id: number;
     lastLevel: string;
     front: string;
     back: string;
-    updatedAt: Date;
-    createdAt: Date;
+    updatedAt: string;
+    createdAt: string;
     picture: string;
-    nextView: Date;
-    daysLastView: string;
+    nextView: string;
+    daysLastView: number;
     content?: JSX.Element;
     study: boolean;
 }

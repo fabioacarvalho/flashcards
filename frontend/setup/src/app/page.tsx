@@ -1,20 +1,20 @@
 'use client'
 
-import useCards from "@/data/hooks/pages/useCards.page";
 import styles from "./page.module.css";
 import CardList from "../components/Cards/CardList"
 import Link from 'next/link'
+import useIndex from "@/data/hooks/pages/useIndex.page";
 
 
 export default function Home() {
-  const { infos } = useCards();
+  const { cards, cardsToStudy } = useIndex();
 
   return (
     <main className={styles.container}>
       
         <h2>Cards to study</h2>
         {/* Lista de cartões */}
-        <p>We have <strong>{infos.cardsToStudy}</strong> cards to study.</p>
+        <p>We have <strong>{cardsToStudy}</strong> cards to study.</p>
         
 
         <div style={{ marginTop: 15, marginBottom: 15, }}>
@@ -22,7 +22,7 @@ export default function Home() {
           <Link className={styles.buttonDesign1} href={"/cards/add"}>Add Card</Link>
         </div>
 
-      <CardList cards={infos.cards} />
+      <CardList cards={cards} />
 
     </main>
   );
